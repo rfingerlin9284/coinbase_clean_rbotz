@@ -1,0 +1,215 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "[MULTI_ENGINE][RO] 📜 OANDA Narration",
+      "type": "shell",
+      "command": "tail -f /home/rfing/RBOTZILLA_OANDA_CLEAN/logs/narration.jsonl | python3 -c \"import sys,json; [print(json.dumps(json.loads(l), indent=2)) for l in sys.stdin]\"",
+      "group": "test",
+      "presentation": {
+        "reveal": "always",
+        "panel": "new",
+        "group": "dual_monitor"
+      }
+    },
+    {
+      "label": "[MULTI_ENGINE][RO] 📜 COINBASE Narration",
+      "type": "shell",
+      "command": "tail -f /home/rfing/RBOTZILLA_COINBASE_CLEAN/logs/narration.jsonl | python3 -c \"import sys,json; [print(json.dumps(json.loads(l), indent=2)) for l in sys.stdin]\"",
+      "group": "test",
+      "presentation": {
+        "reveal": "always",
+        "panel": "new",
+        "group": "dual_monitor"
+      }
+    },
+    {
+      "label": "[MULTI_ENGINE][RO] 👁️ WATCH BOTH ENGINES — Split View",
+      "dependsOn": [
+        "[MULTI_ENGINE][RO] 📖 OANDA (Scaled) Log",
+        "[MULTI_ENGINE][RO] 📖 COINBASE (Micro) Log",
+        "[MULTI_ENGINE][RO] 📜 OANDA Narration",
+        "[MULTI_ENGINE][RO] 📜 COINBASE Narration"
+      ],
+      "dependsOrder": "parallel",
+      "group": "test",
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      }
+    },
+    {
+      "label": "[MULTI_ENGINE][RO] 📖 COINBASE (Micro) Log",
+      "type": "shell",
+      "command": "tail -f /home/rfing/RBOTZILLA_COINBASE_CLEAN/logs/engine_continuous.out",
+      "group": "test",
+      "presentation": {
+        "reveal": "always",
+        "panel": "new",
+        "group": "dual_monitor"
+      }
+    },
+    {
+      "label": "[MULTI_ENGINE][RO] 📖 OANDA (Scaled) Log",
+      "type": "shell",
+      "command": "tail -f /home/rfing/RBOTZILLA_OANDA_CLEAN/logs/engine_continuous.out",
+      "group": "test",
+      "presentation": {
+        "reveal": "always",
+        "panel": "new",
+        "group": "dual_monitor"
+      }
+    },
+    {
+      "label": "[COINBASE_CRYPTO][W] 🟢 Start Engine — Crypto scan | Regime-aware | 24/7 market",
+      "type": "shell",
+      "command": "echo '' && echo '═══════════════════════════════════════════════════' && echo '  ⚠️  THIS TASK WILL:' && echo '  Start the RBOTZILLA COINBASE CRYPTO engine.' && echo '  Crypto-native: 24/7 market | Regime detection | MTF Sniper Gate' && echo '  Price-proportional pip sizing | No forex session limits' && echo '  Then: live tail of engine log (Ctrl+C to stop watching)' && echo '═══════════════════════════════════════════════════' && echo '' && read -p '  Proceed? (Y/N/Exit): ' choice && case \"$choice\" in [yY]) bash scripts/start.sh && tail -f logs/engine_continuous.out ;; [eE]|[eE][xX][iI][tT]) echo '  Exited.' ;; *) echo '  Cancelled.' ;; esac",
+      "options": {
+        "cwd": "/home/rfing/RBOTZILLA_COINBASE_CLEAN"
+      },
+      "group": "build",
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      }
+    },
+    {
+      "label": "[COINBASE_CRYPTO][W] 🔴 Stop Engine — Kills the running Coinbase engine",
+      "type": "shell",
+      "command": "echo '' && echo '═══════════════════════════════════════════════════' && echo '  ⚠️  THIS TASK WILL:' && echo '  Kill the running COINBASE CRYPTO engine process.' && echo '  Open positions remain on Coinbase with broker-side OCO.' && echo '═══════════════════════════════════════════════════' && echo '' && read -p '  Proceed? (Y/N/Exit): ' choice && case \"$choice\" in [yY]) bash scripts/stop.sh ;; [eE]|[eE][xX][iI][tT]) echo '  Exited.' ;; *) echo '  Cancelled.' ;; esac",
+      "options": {
+        "cwd": "/home/rfing/RBOTZILLA_COINBASE_CLEAN"
+      },
+      "group": "build",
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      }
+    },
+    {
+      "label": "[COINBASE_CRYPTO][W] 🔄 Restart Engine",
+      "type": "shell",
+      "command": "cd /home/rfing/RBOTZILLA_COINBASE_CLEAN && bash scripts/restart.sh",
+      "options": {
+        "cwd": "/home/rfing/RBOTZILLA_COINBASE_CLEAN"
+      },
+      "group": "build",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "shared",
+        "showReuseMessage": true,
+        "clear": true
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "[COINBASE_CRYPTO][RO] 📖 LIVE TAIL — Engine Log (engine_continuous.out)",
+      "type": "shell",
+      "command": "tail -f /home/rfing/RBOTZILLA_COINBASE_CLEAN/logs/engine_continuous.out",
+      "options": {
+        "cwd": "/home/rfing/RBOTZILLA_COINBASE_CLEAN"
+      },
+      "group": "test",
+      "presentation": {
+        "reveal": "always",
+        "panel": "new",
+        "group": "coinbase_tails"
+      }
+    },
+    {
+      "label": "[COINBASE_CRYPTO][RO] 📜 LIVE TAIL — Narration Events (narration.jsonl)",
+      "type": "shell",
+      "command": "tail -f /home/rfing/RBOTZILLA_COINBASE_CLEAN/logs/narration.jsonl | python3 -c \"import sys,json; [print(json.dumps(json.loads(l), indent=None)) for l in sys.stdin]\" 2>/dev/null || tail -f /home/rfing/RBOTZILLA_COINBASE_CLEAN/logs/narration.jsonl",
+      "options": {
+        "cwd": "/home/rfing/RBOTZILLA_COINBASE_CLEAN"
+      },
+      "group": "test",
+      "presentation": {
+        "reveal": "always",
+        "panel": "new",
+        "group": "coinbase_tails"
+      }
+    },
+    {
+      "label": "[COINBASE_CRYPTO][RO] 👀 Watch Live — Opens engine + narration panels",
+      "dependsOn": [
+        "[COINBASE_CRYPTO][RO] 📖 LIVE TAIL — Engine Log (engine_continuous.out)",
+        "[COINBASE_CRYPTO][RO] 📜 LIVE TAIL — Narration Events (narration.jsonl)"
+      ],
+      "dependsOrder": "parallel",
+      "group": "test",
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      }
+    },
+    {
+      "label": "[COINBASE_CRYPTO][RO] 🏥 Health Check — Process + broker status",
+      "type": "shell",
+      "command": "bash scripts/health_check.sh",
+      "options": {
+        "cwd": "/home/rfing/RBOTZILLA_COINBASE_CLEAN"
+      },
+      "group": "test",
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      }
+    },
+    {
+      "label": "[COINBASE_CRYPTO][W] 🔒 Lock All Code — Sets .py/.sh to read-only (chmod 444)",
+      "type": "shell",
+      "command": "echo '' && echo '═══════════════════════════════════════════════════' && echo '  ⚠️  THIS TASK WILL set ALL .py/.sh to read-only (444).' && echo '  Running engine is NOT affected.' && echo '═══════════════════════════════════════════════════' && echo '' && read -p '  Proceed? (Y/N/Exit): ' choice && case \"$choice\" in [yY]) find /home/rfing/RBOTZILLA_COINBASE_CLEAN -name '*.py' ! -path '*/logs/*' ! -path '*/.venv/*' -exec chmod 444 {} \\; && find /home/rfing/RBOTZILLA_COINBASE_CLEAN -name '*.sh' ! -path '*/logs/*' ! -path '*/.venv/*' -exec chmod 444 {} \\; && echo '✅ Locked (444)' ;; [eE]|[eE][xX][iI][tT]) echo '  Exited.' ;; *) echo '  Cancelled.' ;; esac",
+      "options": {
+        "cwd": "/home/rfing/RBOTZILLA_COINBASE_CLEAN"
+      },
+      "group": "build",
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      }
+    },
+    {
+      "label": "[COINBASE_CRYPTO][W] 🔓 Unlock All Code — Sets .py/.sh to writable (chmod 644/755)",
+      "type": "shell",
+      "command": "echo '' && echo '═══════════════════════════════════════════════════' && echo '  ⚠️  THIS TASK WILL set .py to 644 and .sh to 755.' && echo '  Enables agent code editing and patching.' && echo '═══════════════════════════════════════════════════' && echo '' && read -p '  Proceed? (Y/N/Exit): ' choice && case \"$choice\" in [yY]) find /home/rfing/RBOTZILLA_COINBASE_CLEAN -name '*.py' ! -path '*/logs/*' ! -path '*/.venv/*' -exec chmod 644 {} \\; && find /home/rfing/RBOTZILLA_COINBASE_CLEAN -name '*.sh' ! -path '*/logs/*' ! -path '*/.venv/*' -exec chmod 755 {} \\; && echo '✅ Unlocked (644/755)' ;; [eE]|[eE][xX][iI][tT]) echo '  Exited.' ;; *) echo '  Cancelled.' ;; esac",
+      "options": {
+        "cwd": "/home/rfing/RBOTZILLA_COINBASE_CLEAN"
+      },
+      "group": "build",
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      }
+    },
+    {
+      "label": "[COINBASE_CRYPTO][W] 🔍 Reassess Trades — Runs TradeManager cycle (can modify SL)",
+      "type": "shell",
+      "command": "echo '' && echo '═══════════════════════════════════════════════════' && echo '  ⚠️  THIS TASK WILL run a full TradeManager cycle.' && echo '  CAN modify stop-loss on open crypto trades.' && echo '═══════════════════════════════════════════════════' && echo '' && read -p '  Proceed? (Y/N/Exit): ' choice && case \"$choice\" in [yY]) .venv/bin/python scripts/reassess_trades.py ;; [eE]|[eE][xX][iI][tT]) echo '  Exited.' ;; *) echo '  Cancelled.' ;; esac",
+      "options": {
+        "cwd": "/home/rfing/RBOTZILLA_COINBASE_CLEAN"
+      },
+      "group": "test",
+      "presentation": {
+        "reveal": "always",
+        "panel": "new",
+        "clear": true
+      }
+    },
+    {
+      "label": "[COINBASE_CRYPTO][W] 📸 Snapshot + Backup — Coinbase engine backup",
+      "type": "shell",
+      "command": "echo '' && echo '═══════════════════════════════════════════════════' && echo '  ⚠️  THIS TASK WILL:' && echo '  1. Create a dated SNAPSHOT folder in-repo' && echo '  2. Copy snapshot to ~/Desktop/' && echo '  3. Copy snapshot to ~/  (home root)' && echo '  Safe — does NOT restart the engine or modify .env.' && echo '═══════════════════════════════════════════════════' && echo '' && read -p '  Proceed? (Y/N/Exit): ' choice && case \"$choice\" in [yY]) SNAP=\"SNAPSHOT_COINBASE_$(date +%Y%m%d_%H%M)\" && mkdir -p \"$SNAP\" && cp -r engine strategies brokers foundation util scripts .vscode .env \"$SNAP/\" 2>/dev/null && echo \"✅ In-repo snapshot: $SNAP\" && cp -r \"$SNAP\" ~/Desktop/ && echo \"✅ Desktop backup: ~/Desktop/$SNAP\" && cp -r \"$SNAP\" ~/ && echo \"✅ Home root backup: ~/$SNAP\" ;; [eE]|[eE][xX][iI][tT]) echo '  Exited.' ;; *) echo '  Cancelled.' ;; esac",
+      "options": {
+        "cwd": "/home/rfing/RBOTZILLA_COINBASE_CLEAN"
+      },
+      "group": "build",
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      }
+    }
+  ]
+}

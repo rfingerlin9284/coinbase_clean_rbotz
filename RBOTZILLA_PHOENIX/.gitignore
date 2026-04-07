@@ -1,0 +1,214 @@
+# RBOTZILLA PHOENIX - Git Ignore File
+# Purpose: Protect secrets, exclude runtime artifacts
+
+# ═══════════════════════════════════════════════════════════════════════════
+# 🔐 SECRETS & CREDENTIALS (CRITICAL - NEVER COMMIT)
+# ═══════════════════════════════════════════════════════════════════════════
+ops/secrets.env
+ops/*.env
+.env
+.env.local
+.env.*.local
+env_new.env
+.state/
+master.env
+
+# API Keys & Tokens
+credentials.json
+token.json
+*.pem
+*.key
+private_key*
+access_token*
+
+# ═══════════════════════════════════════════════════════════════════════════
+# 📝 RUNTIME LOGS & DATA (NOT PRODUCTION ARTIFACTS)
+# ═══════════════════════════════════════════════════════════════════════════
+logs/
+audit_logs/
+audit_reports/
+status/
+export/
+archives/
+*.log
+/tmp/
+/tmp.txt
+
+# Event logs (sensitive trade data)
+logs/narration.jsonl*
+logs/oanda_headless.log
+logs/parameter_changes.log
+logs/strict_runtime_*.txt
+
+# ═══════════════════════════════════════════════════════════════════════════
+# 🐍 PYTHON (Virtual Environment, Cache, etc.)
+# ═══════════════════════════════════════════════════════════════════════════
+.venv/
+venv/
+env/
+ENV/
+*/venv/
+**/venv/
+venv_coinbase/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.c
+*.so
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.hypothesis/
+
+# ═══════════════════════════════════════════════════════════════════════════
+# 💾 BACKUPS & TEMPORARY FILES
+# ═══════════════════════════════════════════════════════════════════════════
+backups/
+*.bak
+*.backup
+*.tmp
+*.swp
+*.swo
+*~
+.*.swp
+.DS_Store
+_CONSOLIDATION_BACKUP_*/
+
+# Backup narration files
+logs/narration.jsonl.*
+logs/narration.jsonl.backup
+
+# Configuration backups
+configs/runtime_mode.json.*
+configs/*.backup
+
+# ═══════════════════════════════════════════════════════════════════════════
+# 🐳 DOCKER & CONTAINERS
+# ═══════════════════════════════════════════════════════════════════════════
+.docker/
+docker-compose.override.yml
+.dockerignore
+
+# ═══════════════════════════════════════════════════════════════════════════
+# 🔍 IDE & EDITOR SETTINGS
+# ═══════════════════════════════════════════════════════════════════════════
+.vscode/settings.json
+.vscode/launch.json
+.vscode/extensions.json
+.idea/
+*.swp
+*.sublime-workspace
+.sublime-project
+.vs/
+.DS_Store
+*.code-workspace
+
+# PyCharm
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# Vim
+*.vim
+.vim/
+
+# ═══════════════════════════════════════════════════════════════════════════
+# 📊 DATA & ANALYSIS (Optional - Can commit for reproducibility)
+# ═══════════════════════════════════════════════════════════════════════════
+backtest/results/*.json
+backtest/results/*.csv
+.ipynb_checkpoints/
+*.ipynb
+
+# ═══════════════════════════════════════════════════════════════════════════
+# 🌐 EXTERNAL & GENERATED
+# ═══════════════════════════════════════════════════════════════════════════
+node_modules/
+.npm/
+package-lock.json
+yarn.lock
+dashboard/build/
+dashboard/.streamlit/
+dashboard/.next/
+
+# ═══════════════════════════════════════════════════════════════════════════
+# 🔧 BUILD & DISTRIBUTION
+# ═══════════════════════════════════════════════════════════════════════════
+*.tar.gz
+*.zip
+*.whl
+*.locks
+
+# ═══════════════════════════════════════════════════════════════════════════
+# 📊 SYSTEM & OS FILES
+# ═══════════════════════════════════════════════════════════════════════════
+Thumbs.db
+.directory
+#*
+
+# ═══════════════════════════════════════════════════════════════════════════
+# 🎯 MISC LOCAL FILES
+# ═══════════════════════════════════════════════════════════════════════════
+rick_clean_live/
+sent_to_windows_files_and_folders/
+_source_repos/
+*.db
+
+# ═══════════════════════════════════════════════════════════════════════════
+# ✓ ALLOW PATTERNS (Override gitignore for important files)
+# ═══════════════════════════════════════════════════════════════════════════
+!README.md
+!DEPLOYMENT.md
+!ARCHITECTURE.md
+!WORKFLOWS.md
+!MEGA_PROMPT.md
+!API_CHEATSHEET.md
+!LICENSE
+!.gitignore
+
+# Source code (YES)
+!*.py
+!*.sh
+!*.js
+!*.json
+
+# Configuration templates (YES)
+!ops/secrets.env.template
+!configs/runtime_mode.json.template
+!.env.example
+
+# VS Code tasks (YES)
+!.vscode/tasks.json
+
+# Examples & tests (YES)
+!tests/
+!examples/
+!sample_data/
+
+# Directory markers (YES)
+!.gitkeep
+!logs/.gitkeep
+!backups/.gitkeep

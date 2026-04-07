@@ -1,0 +1,574 @@
+(0:00 - 0:15)
+Unfortunately, less than 10% of traders are using AI for their workflows right now. And of the traders who are using it, most are using it completely wrong. This isn't about predicting the market, having AI tell you what direction the stock is going to go over the next day or month or year.
+
+(0:16 - 0:37)
+This is about infrastructure advantage. The same infrastructure advantage hedge funds had through hiring teams of people, client facing, middle office, back office teams of people. That infrastructure that was just completely not accessible to us as individual owners of our trading businesses, but now it is.
+
+(0:37 - 0:56)
+And I'm going to show you exactly how to build it. Before we get into the five practices, I need to frame what this actually is, because this isn't about trading strategies, but we'll hit on them. It's not about indicators or setups, but we'll talk a little bit about those.
+
+(0:56 - 1:09)
+This is really about operational efficiency. The edge in trading isn't what you trade anymore. Everybody has access to the same strategies or similar strategies, the same indicators, the same information.
+
+(1:10 - 1:42)
+The edge is in how efficiently you operate. How fast can you prepare? How clear are your alerts? How accurate is your self analysis? I mean, how customized are your tools? And right now, 90% of traders are doing all of this manually. I mean, that's the gap, right? And today I'm going to show you five specific workflows that are giving me, giving traders like us, an operational edge over almost every trader we compete against.
+
+(1:42 - 1:47)
+This isn't prediction. This isn't magic. This is operational infrastructure.
+
+(1:48 - 1:54)
+And you don't need to be a coder. AI has taken away that barrier to entry. It's broken down that barrier to entry.
+
+(1:55 - 2:14)
+I've had these ideas that we're going to talk about in my notebook for years, years. They were listed as projects I'd like to do, things that have been journaled as, man, this would be so impactful if I could do any of these five things. When it comes to coding them up, it always fell short because of my coding skills.
+
+(2:15 - 2:27)
+When I started here, I didn't know how to code at all. I didn't really even understand a simple if-then statement. But I spent two years working on coding every single day just to become proficient.
+
+(2:28 - 2:35)
+Am I a coder now? I'm not. But Claude is. Let's get into practice number one, custom price alerts.
+
+(2:36 - 2:43)
+So TradingView gives you basic alerts, right? Price crosses above a level. RSI goes oversold. MACD crosses.
+
+(2:43 - 3:07)
+But what if you need something specific? What if you want an alert that only fires when price breaks the opening range high with volume confirmation while above VWAP and only in the first two hours of the session? I mean, most traders just don't get that alert because they can't code it up. So the old way was Learn PineScript. That would usually take months.
+
+(3:08 - 3:12)
+Figure out the syntax. That would take hours. Debug errors.
+
+(3:12 - 3:26)
+I mean, the frustration, even if you've done everything above, this is the killer. Or you just never built it. My journal is so full of trading ideas, observations I've had over time, things that I wish I could do.
+
+(3:26 - 3:32)
+I tried to promise myself I would go out and code those things. I learned to code. I started on some of them.
+
+(3:32 - 3:39)
+But I didn't have a giant team of quants supporting my strategies. Ultimately, it was me. And I just wasn't enough.
+
+(3:39 - 3:58)
+So the new way is using these prompting techniques that we're getting into right now. Here's exactly what I'm typing into Claude. Build a TradingView PineScript V5 indicator and alert that triggers when all of these conditions are met.
+
+(4:00 - 4:10)
+One, price breaks above the 30-minute opening range high. Opening range equals 930 to 10 a.m. Eastern time. That's what I'm defining as the opening range.
+
+(4:11 - 4:26)
+Breakout equals close above the high of this range. Two, current bar volume is at least 1.5x the average volume of the opening 30-minute range. Three, price is currently above V1.
+
+(4:27 - 4:37)
+Four, it's within the first two hours of the regular session before 1130 Eastern. Visual requirements. These go into the prompt.
+
+(4:37 - 4:52)
+Draw a horizontal line showing the opening range high. Mark the breakout bar with a green triangle above the bar. Add a background color, light green, when all the conditions are met.
+
+(4:53 - 5:09)
+Alert requirements create an alert condition that fires once per bar when conditions are met. Alert messages should include the symbol, the price, the time. Make the code clean and well commented.
+
+(5:10 - 5:15)
+That's it. Specific, clear, complete. Now watch what happens.
+
+(5:17 - 5:22)
+Step two is Claude goes to work. It generates the code. It's writing the entire script in about 30 seconds.
+
+(5:22 - 5:26)
+There it is. Complete PineScript. Comment it.
+
+(5:26 - 5:32)
+Ready to use. Step three, pretty simple, right? Copy, paste, test. Copy the code.
+
+(5:33 - 5:42)
+Open Trading View Pine Editor. Paste, save, add to chart, and it works. The opening range is drawn.
+
+(5:42 - 5:49)
+The alert conditions are set. The visual marker is showing when it triggers. Time investment here, like less than five minutes.
+
+(5:50 - 5:57)
+Here is the most important part. Refine. Let's say I want to add one more filter.
+
+(5:58 - 6:07)
+Update the script. Only trigger the alert if the breakout bar closes in the top 50% of its range. All right, this will confirm some strong buying pressure on the breakout.
+
+(6:08 - 6:13)
+We added one more criteria. 30 seconds later, it's updated. Copy, paste, back to Trading View.
+
+(6:14 - 6:23)
+Done. Listen, you can do this with just about any language. Now if you're using thinkorswim and try to Trading View, it's the exact same concept.
+
+(6:23 - 6:28)
+It's a different prompt. Both prompts are listed below. If you use it, comment.
+
+(6:28 - 6:40)
+You probably have other adjustments you can make to make it better, right? Share them, don't share them, whatever. Just even give a thumbs up in the comments if you try this. Now let's think about what just happened.
+
+(6:41 - 6:57)
+We just started the process of building a custom alert system. That would have taken you weeks to learn to build by yourself if you even attempted it. And while other traders are limited to basic alerts, you now have, through this prompting process, surgical precision.
+
+(6:58 - 7:08)
+You're only getting notified about setups that meet your exact criteria. Not every breakout, not every volume spike. The exact combinations of conditions you defined as high probability.
+
+(7:08 - 7:17)
+This is practice one. Now let's get ready to move on to the other practices. Because here's what's happening in trading right now.
+
+(7:17 - 7:32)
+There are three tiers of traders. Tier one is like 90% of people, and it's manual everything. Tier two is about 7% of people based on our observations, and they're using AI wrong.
+
+(7:33 - 7:50)
+Tier three is less than 3% of traders I interact with, and they're using AI right. But let's break this down a little more. Tier one, 90%, right? They're manually reviewing trades and spreadsheets, or they're reviewing software, which is basically just advanced Excel with like a user interface on top of it.
+
+(7:50 - 7:57)
+They're manually tracking patterns. They're labeling their trades. They can't build custom alerts because they don't know how to code.
+
+(7:57 - 8:09)
+And they tell themselves, I don't know how to code. So they spend 5 to 10 hours per week on administrative tasks. And then they're completely limited by platform constraints.
+
+(8:10 - 8:20)
+If a software provider hasn't offered it for free, they don't really do it. They just don't get it. Tier two is about 7% of the people.
+
+(8:21 - 8:37)
+These traders are using AI, but they're using it wrong. They're asking Claude things like, what stocks should I trade today? Is this trade a good trade? Predict where spy will go. I mean, that stuff's like garbage, right? I'm glad you're using it, but garbage in, garbage out.
+
+(8:37 - 8:44)
+It's the old saying, right? Claude is not a crystal ball. It's not a fortune teller. It's a coding and analysis partner.
+
+(8:44 - 8:55)
+It's like those traders are using a Ferrari as if it was a golf cart. I mean, they have the tool. They're just using it for the wrong job or the wrong jobs.
+
+(8:55 - 9:15)
+If you're still watching this, you're in tier three, that 3%. These traders are using Claude to trade with a research team like a hedge fund, to build custom alerts in minutes like a quant fund, to automate repetitive analysis like a firm with a great middle office. They're using it to create infrastructure.
+
+(9:15 - 9:24)
+Their competitors literally cannot access. Exactly like a hedge fund with a great back office. They're operating at 10x efficiency already.
+
+(9:25 - 9:28)
+So 90% of the people are manual. They're slow. They're pretty inefficient.
+
+(9:29 - 9:37)
+7% are using AI wrong. It's really just wasted potential. And 3% are using AI right with that operational edge.
+
+(9:38 - 9:53)
+You are here and you're about to join that 3% because this isn't about AI replacing your decision making. It's about AI removing the bottlenecks in your workflow, which is a key distinction. The wrong way of using AI.
+
+(9:54 - 10:02)
+Should I buy a video? The right way. Build me a custom alert for the wrong way. Predict what's going to happen tomorrow.
+
+(10:02 - 10:09)
+The right way. Analyze these 50 trades for XYZ pattern. The wrong way.
+
+(10:09 - 10:15)
+What's the best strategy? The right way. Write code for this specific order type. We'll get into these in a second.
+
+(10:16 - 10:20)
+Wrong way. AI is a fortune teller. Tell me where my edge is.
+
+(10:21 - 10:27)
+It's just wrong. The right way is AI as an infrastructure building. This is game changing.
+
+(10:27 - 10:39)
+Do you see the difference on these? One's asking AI to think for you. Unfortunately, that doesn't really work yet. The other is using AI to build systems that make you more effective.
+
+(10:39 - 10:50)
+And that's exactly where the edge is. Well, 90% of traders are spending their Sunday manually reviewing trades in Excel for four hours. Talk more about that in a second.
+
+(10:50 - 10:58)
+You'll be spending 15 minutes and you'll be getting better insights than they'll get in those four hours. That's not a small edge. That's a structural advantage.
+
+(10:59 - 11:12)
+Now before we go into the other four practices, you need to understand why most traders fail when they're trying to use AI. Even when they're trying hard. It's because you're going to make these mistakes.
+
+(11:13 - 11:20)
+You'll end up in that 7% of people that are using it, just using it wrong. You'll get nothing. So here are the four mistakes.
+
+(11:21 - 11:31)
+This probably could be its own video, but we're putting it in here because we need you to learn. Vague prompts is the number one mistake. A vague prompt is something like, help me with my trading.
+
+(11:32 - 11:40)
+Claude has no idea what you want. This is what actually works. Build the trading view pine script that triggers when price breaks above the 30-minute high.
+
+(11:40 - 11:49)
+Volume is 1.5x average in prices above VWOL. You see the difference? Specificity is everything. Mistake number two.
+
+(11:50 - 11:59)
+This is a costly one. When there's no iteration. People that aren't using AI effectively, what they're doing is they're asking once.
+
+(11:59 - 12:05)
+They're getting a mediocre result, then they're kind of giving up. This is what works. That's close.
+
+(12:05 - 12:13)
+Now add a filter. Only trigger if it's within the first 90 minutes of the session. You refine, you improve, you iterate.
+
+(12:13 - 12:28)
+Little rule of thumb. Don't start an idea using AI unless you're willing to spend two weeks working on it. Not two weeks straight, but just you have to make that commitment that you're going to iterate over a couple of weeks.
+
+(12:29 - 12:38)
+Your iterations will get better and better and better. And the final output will be much better. What used to take two years now only takes two weeks.
+
+(12:38 - 12:50)
+Commit to it for two weeks. Because mistake number three is the blind trust, right? And what other people do is they'll just copy, code, paste it, assume it works. Never really works.
+
+(12:50 - 12:55)
+What does work is test it. Break it. Verify the logic.
+
+(12:55 - 13:04)
+Understand what it's doing. Always. Finally, mistake number four is like there's no context around what they're doing.
+
+(13:04 - 13:09)
+Review my trade. Then you send a screenshot, right? Nothing else. Clock can't help you.
+
+(13:09 - 13:15)
+There's no context there. What works? Specificity. This was an opening range breakout on Tesla.
+
+(13:15 - 13:26)
+My entry rule is break of the 30 minute high with volume. My plan was to exit at a first five minute bar closing in the bottom 25%. I exited early.
+
+(13:26 - 13:33)
+Analyze why. You notice the difference in context. It's the difference between garbage output and gold.
+
+(13:34 - 13:48)
+The point is most traders are using AI like somebody who just bought a Formula One car and they're just driving around in first gear. This tool is incredible. But how you use it determines if you get 10% better or 10x better.
+
+(13:48 - 13:53)
+All right. Let me show you exactly how to use it. Four more specific workflows.
+
+(13:54 - 14:02)
+Each one is going to save you hours. And each one will give you capabilities you literally couldn't have six months ago. Let's start with practice two.
+
+(14:04 - 14:14)
+Pre-market game plan automation. So inconsistent game planning is the silent killer of even really good traders. Some days you're prepared.
+
+(14:14 - 14:31)
+Some days you're not. It's kind of amateur, right? Again, it's having a sports car, but only driving it when there's a ton of traffic, when you can't open it up. The problem is how do you consistently analyze 20 to 30 stocks on your watch list? Overnight news and catalysts.
+
+(14:31 - 14:43)
+Pre-market price action and levels. And then prioritize the best opportunity without spending 45 to 60 minutes every single morning just doing that. The old way was you check news on every stock manually.
+
+(14:43 - 14:49)
+You look at pre-market charts one by one. You try to remember which ones have catalysts. You write down notes somewhere.
+
+(14:49 - 15:10)
+Somehow kind of get down to three and you prioritize. But by the time you're done, a lot of times the best moves you might have missed, right? Your new way is to create a template in Claude that we're going to do together right now that you can reuse every single day. You can analyze the watch list for today's trading session by doing this.
+
+(15:10 - 15:16)
+Analyze this watch list for today's trading session. Here's my watch list. Let's pick random ones.
+
+(15:16 - 15:27)
+Tesla, MU, Nvidia, AMD, Meta, Apple, Google, Microsoft, Amazon, right? Overnight news slash catalysts. And you'll change whatever symbols you want in there. Overnight news slash catalysts.
+
+(15:27 - 15:38)
+Paste any relevant headlines from any news source you have. Just copy and paste those headlines for that name. Copy and paste them right here.
+
+(15:38 - 15:51)
+Pre-market data. You're going to put the symbol, the price, the change, volume, key levels. You can actually code very simply, and we're not going to get into it today, a simple program that will pull this for you.
+
+(15:52 - 16:10)
+Depending on your data source provider, you can get all of this pulled for you. But for each stock, provide the key catalyst or news driver, if there is any, pre-market price action assessment. You know, strength, weakness, is there volume? The key levels to watch support resistance from the data above.
+
+(16:10 - 16:28)
+The setup potential. Which patterns might develop based on what we've seen? Is it opening range break? VWAP bounce? Momentum continuation, et cetera. Do you hear how we're listing all of this stuff out with specificity, and then we're asking with specificity too? And then most importantly, my favorite, priority ranking.
+
+(16:29 - 16:46)
+High, medium, or low, based on the setup quality and the catalyst strength. Output format, provide as a clean table with one row per stock, sorted by priority, highest first. Then provide two to three sentences of overall market context at the bottom.
+
+(16:47 - 16:56)
+So this is a template that we just built, right? You can actually copy this template. And every morning, you just update the tickers. You update the news.
+
+(16:56 - 17:00)
+You update the pre-market data. It takes two minutes to gather all this stuff. You paste it in.
+
+(17:01 - 17:22)
+You can see exactly what Claude outputs, this priority watch list, right? As we look through it, we can see a lot of really important information that's going to help us. And most importantly, what we're looking at is a prioritized ranking system. Is it going to get it right all the time? No.
+
+(17:22 - 17:28)
+It still needs some input variables. But think about this. You're training it to help you.
+
+(17:30 - 17:37)
+You're allowing it to understand your trading. That's your game plan. It's clean.
+
+(17:37 - 17:42)
+It's organized. It's prioritized. Your time invested in the morning can be five minutes.
+
+(17:43 - 18:00)
+You can spend more time working on your preparation for you being ready for the market because you've got professional grade game planning every single day. No gaps, no inconsistency. Unfortunately, too many traders just kind of wing their game plan.
+
+(18:00 - 18:15)
+But you now have institutional level preparation in less than five minutes every morning. Let's talk about practice three because this one, this one changed how I trade. Practices one and two are there to save you time.
+
+(18:15 - 18:44)
+But practice three, this one changed so much how I understand my own performance. Not what I trade, but how I understand why I'm winning or losing. You know, as Claude kind of got better and AI got better, I thought, what if I could build exactly what I need? Not a generic journal, not a Dear Diary, not a daily report card, not a trader view with features I don't use, but a system built specifically for how I trade for the questions I actually need answered.
+
+(18:46 - 19:02)
+You know, it used to be I needed to kind of look to buy expensive software or spend hours in Excel because I couldn't build the tools myself. But as soon as I opened Claude and I said this exact prompt, pay attention. Build me a Python script that analyzes my trading performance.
+
+(19:03 - 19:30)
+Input variables. I'd import a cfv file from my broker or any broker, right? Required columns, symbol, entry, entry date, entry time, entry price, exit date, exit time, exit price, shares, P&O. And then I'll manually add setup type column, opening range break, view up bounce, momentum, hitchhiker, whatever, like then I'll ask it to do this analysis, analysis to perform.
+
+(19:31 - 19:48)
+Overall statistics, total trades, winners, losers, win rate, average win, average loss, expectancy, largest win, largest loss, total P&L, average P&L per trade. You can get a lot of that stuff, but here's the most important thing. Performance by setup type.
+
+(19:49 - 20:17)
+What's the win rate for each setup I have, right? Am I winning on breakout trades? Am I winning on overextensions? Am I winning on day twos? Well, I could spend all of the time tagging it, but this is doing it for me. And even more importantly, I can ask things like, what's my average win loss for each setup? What's my total P&L by setup? Number of trades per setup, per week. And then number three was critical, and I think most people miss this.
+
+(20:18 - 20:33)
+What's my performance by time of day? Breaking my trading day into hourly blocks. For each block, what's my win rate, average win, average loss, total P&L, number of trades, right? I get it. You can get a lot of this data, but it takes a lot of time.
+
+(20:33 - 20:48)
+What we're doing with this prompt right now is we're putting it all in one place to ultimately build something really special, so pay attention. Performance by day of week, same metrics broken down Monday through Friday. Day of week on top of setup.
+
+(20:49 - 20:57)
+Something totally different. Pattern detection. Identify my best performing hour and the setups I trade in that.
+
+(20:57 - 21:06)
+Identify my worst performing hour and the setups I trade in that. Identify my general best performing setup. Identify my worst performing setup.
+
+(21:07 - 21:18)
+Flag any time periods or setups where I'm consistently losing. And then for the output, display results as clean formatted tables. Generate a written summary.
+
+(21:19 - 21:25)
+This is where the gold is. Highlighting key patterns. And then you can even ask it.
+
+(21:25 - 21:34)
+Provide specific recommendations based on this data. Here are the technical requirements that I just throw in there. Use pandas for data analysis.
+
+(21:35 - 21:47)
+Make it easy to run. Simple command line, python analyze trades.py. Include error handling for missing data. Add comments explaining each section.
+
+(21:47 - 21:58)
+Make this something I can run weekly on my latest trades. There's the prompt. Specific, complete, exactly what I need.
+
+(22:00 - 22:05)
+This is what happened. Claude wrote the entire system, like 20 minutes. You know, kind of gave it a little bit of feedback.
+
+(22:06 - 22:12)
+I tested it, found a few things to tweak, fed those back. Another maybe 10 minutes. Done.
+
+(22:12 - 22:30)
+I then ran my past 100 trading days through it. And within 30 seconds or maybe 45 seconds, I saw something I had never really seen before. My performance by hour, more specifically, my performance by setup by hour was not what I wanted.
+
+(22:31 - 22:52)
+I was inventing more trades after 1130 and 1145 by a mile. If you look at the setups that I was trading, I was really good off the open. By the middle of the day when that lunchtime hit, I was starting to invent trades or force trades in setups that were not clear.
+
+(22:53 - 23:08)
+It gave me a recommendation that says your edge disappears completely after 1130. Your losses increased significantly in hours three, four, and five, right? Focus on capital allocation really in hours one or two. I was super profitable in those times.
+
+(23:09 - 23:28)
+I was sort of inventing trades in hour two. I was actively losing money in hours like three, four, and five. That transformation allowed me to look at that data in a different way because it pulled in that analysis for me.
+
+(23:28 - 23:45)
+It was like looking in a mirror and I was like, holy cow. I can't believe that I missed that. How did I miss that? You can go in and play with all the prompts that we just provided, but there is something so critical about this because it's really tough to see that pander manually.
+
+(23:47 - 24:04)
+The system found it like 30 seconds and I'd been staring at this data for months manually. This allowed me to install a new rule in my trading. Unless it is painfully obvious, I size down a lot after 1130 a.m. period, no exceptions.
+
+(24:04 - 24:21)
+That one insight from one 30-second analysis probably saved me or will save me $15,000 to $20,000 over the course of the next year. Maybe even more than that, right? Practice four. Practice four is something I don't think hardly anybody does.
+
+(24:21 - 24:41)
+Unfortunately, maybe people try it, but I think more people and everybody needs to do it. Custom order entry and exit logic, right? Your platform gives you basic order types. It gives you market, limit, stop, stop limit, OCO orders, right? But what if you need something more sophisticated? Most traders just can't do it because they can't code.
+
+(24:42 - 24:51)
+And even if they can code, they're afraid that they're going to send something that's going to get rejected, right? So they're limited by what their platform offers. But watch this. Here's a simple two-bar trailing stop.
+
+(24:52 - 24:59)
+Here's what I want. A stop loss that starts two bars below my entry. It trails up every time price makes a new two-bar high.
+
+(24:59 - 25:09)
+Never trails down, works automatically. That's not a standard order type in any platform, but I can build it. Here's the prompt for trading view.
+
+(25:10 - 25:30)
+Notice as you're looking through the prompt how specific we are. We are overriding it as well. The user can manually define entry conditions or I'll enter on a simple MA cross for like a demo, right? Your stop loss logic has to be incredibly specific.
+
+(25:31 - 25:48)
+Every time price makes a new two-bar high, current high is greater than the high of past two bars, move stop to the lowest low of the past two bars. Stop only moves up, never down, right? These are things that are very specific. Even more importantly, visual requirements.
+
+(25:49 - 25:55)
+Put this into every prompt. Plot the stop line on the chart. Color coding, red when initially set.
+
+(25:56 - 26:11)
+Green when trailing has moved up at least once. Imagine how great that could be with your trading, right? You can put settings in there, make the look back period two bars adjustable via input. What if you want to go to a five bar or a seven, right? So like you can do all of this stuff.
+
+(26:11 - 26:20)
+It provides clean, well commented code, structural back testing. Claude writes the code, there it is. Stop starts here.
+
+(26:21 - 26:32)
+Price makes new high. Stop trails up, never trails down, automatic, right? Thinkorswim version, we have the same concept. We put it down in the post, so you can actually pull this and just apply it.
+
+(26:32 - 26:46)
+I really encourage you don't copy it without understanding it. Take some time to look through the logic and understand if there's any adjustments that you want to make in this. Most traders exit based on fear or hope.
+
+(26:47 - 26:59)
+But now you can create exits based on structure every single time. Consistent, systematic, emotionless. That's the difference between consistent and chaotic.
+
+(27:01 - 27:10)
+All right, the final one, practice five. This is the one that keeps you from repeating the same mistakes. The AI trade autopsy.
+
+(27:11 - 27:23)
+All right, so you review your trades, great. But are you seeing what's actually there or are you seeing what you want to see? The problem is humans are terrible at objective self-analysis. We justify losses.
+
+(27:23 - 27:32)
+It was a good trade, just bad luck, right? We dismiss wins. I got lucky on that one. We miss patterns that we repeat all the time and we have ego attached to being right.
+
+(27:33 - 27:48)
+It's not analysis, that's all just a version of self-deception. The solution to this is an AI trade autopsy. After every trade, not during the trading day, but after the close, you can get coaching level analysis in 30 seconds.
+
+(27:48 - 27:57)
+Objective, detailed, pattern detecting. Let me show you, all right? So here's the workflow. You take a screenshot of your chart, you mark your entry, you mark your exit.
+
+(27:58 - 28:05)
+Step two, this is the most important thing and you're hearing us repeat this over and over. Give Claude context. Analyze this trade.
+
+(28:05 - 28:11)
+I'm attaching a chart screenshot. Give it the setup details. What was the setup? Opening range break.
+
+(28:11 - 28:29)
+Or this was a higher time frame break out of range. And then the trade was the opening range break, right? Here was the stock, here was the date, here was my entry price, here's my entry logic. Here was my planned exit, right? Here was my planned stop.
+
+(28:29 - 28:43)
+Here was my actual exit. Here are the specific entry rules for my playbook as a whole. And here are my specific exit rules for my playbook as a whole.
+
+(28:45 - 29:00)
+Here's specific context around what happened and what I was planning to do. Instead, I did this, right? I felt like it was rolling over, so I exited. My stop was still where it was supposed to be, but I exited before it was hit.
+
+(29:02 - 29:27)
+More importantly, this was my third trade of the day and my first tour with losers. Here are questions that you will ask Claude specifically. Did my entry meet my rules? Was it clean? Did I follow my exit plan? If not, what did I violate? Based on the chart, what pattern am I showing here? What should I focus on improving? And five, most importantly, ask it.
+
+(29:27 - 29:48)
+If you were coaching me, what would you tell me about this trade? It's specific, it's complete context, it's clear questions. Now watch what Claude catches, right? The autopsy report is something that's so fascinating. Now here's a super prompting ability that you can do.
+
+(29:48 - 30:04)
+Go through this for an entire day. Just repeat the process with the autopsy report, right? Just like you were doing with your daily report card. Take all of these, not one.
+
+(30:05 - 30:23)
+Don't cherry pick. Take all of these. Let's say you did 10 trades on the day and you did an autopsy report for every one of those 10 trades, right? Take all of them and then post them in and say, help me better understand my trading.
+
+(30:24 - 30:42)
+I observe this mistake, this mistake or this mistake. I am trying to work on this or this or this. This is called, or what we're calling on the desk, I don't even know what it's called, super prompting, right? It's basically a meta-learning, right? This is a pattern I've seen before.
+
+(30:42 - 30:54)
+Here are results of my trading. Here are a bunch of autopsies. Help me understand trends and then help me define the one most important thing that I need to focus on.
+
+(30:55 - 31:09)
+This is critical because you can't make adjustments or brains can't process that information fast enough to say we need to do all of these things based on all these trades. No, no, help me prioritize. So use that super prompting technique, basically.
+
+(31:10 - 31:44)
+I do all of this once and then pull all of those autopsy reports and then put it in, right? Otherwise, we're overfitting our trading and that overfitting is so, so dangerous because we're trying to work on this and then we're trying to work on that and then we're trying to work on this. It's really hard to do that. So take the time to go through this entire exercise of creating the autopsy reports post-trade and then going and using that super prompt of help me understand the most important thing for me to be working on.
+
+(31:44 - 31:54)
+Ideally, you're doing this at the end of each week. You can even do it at the end of the day if you want, right? In 30 seconds, Claude can identify your rules violations. They can spot emotional patterns.
+
+(31:54 - 32:15)
+They can quantify the costs for you. They can connect it to recent performance and give actual coaching feedback. This is coaching level analysis for every group of trades every day and it's pretty much for free, right? Most traders get this kind of feedback actually never or maybe once a week if they've hired a performance coach.
+
+(32:15 - 32:24)
+You can actually get it for every trade in real time and it's objective. No ego, no bias. Just here's what you did.
+
+(32:24 - 32:28)
+Here's what rules you violated. Here's the pattern. Here's the fix.
+
+(32:29 - 32:41)
+And then those patterns that emerge, you can start to really identify your blind spots and set effective goals. All right, let's zoom out. Five practices.
+
+(32:42 - 32:53)
+But here's what this actually is. This is infrastructure, right? The three tiers of traders, 90% of traders that are manually doing everything, right? Hours on admin tasks. They're limited by the platform constraints.
+
+(32:53 - 33:01)
+They can't build custom tools. 7% of traders are using AI wrong or asking to predict. They're wasting the tool, really.
+
+(33:02 - 33:10)
+No real value in what they're doing. The 3% of traders that are using AI right are using those custom alerts in minutes. Automatic game planning.
+
+(33:11 - 33:15)
+Pattern recognition systems. Custom order logic. Objective trade analysis.
+
+(33:17 - 33:26)
+You're not actually competing just on strategy anymore. Everyone has access to the same strategies, right? We built scalp radar. Everybody has access to it.
+
+(33:26 - 33:38)
+It's a great tool that you can check out. The same indicators, the same information as everybody else. But when you combine it with this, you're competing on operational efficiency.
+
+(33:39 - 34:06)
+How fast can you prepare? How accurate is your self-analysis? How customized are your tools? How much time do you waste on repetitive tasks, right? Six months ago, these capabilities required coding knowledge. Months of development time or paying developers thousands and thousands of dollars, right? Today, it's just you and Claude. Fifteen minutes, done.
+
+(34:07 - 34:19)
+Here's the five practice framework. Number one, custom alerts. Make sure you're building surgical precision alerts in like five to ten minutes, right? You don't need any coding knowledge.
+
+(34:20 - 34:47)
+Two, game plan automation. In five minutes, you can get professional grade daily prep done every single morning for you. You can even schedule it and say, run it at 8 a.m., run it at 8.30, run it at 9. I don't care. 
+
+Just schedule it for you. Number three, you can get that custom trade journal, right? It gives you pattern recognition that AI can see and you can't. And it can be built exactly for your needs on that weekly basis, right? Number four can be that custom order logic.
+
+(34:47 - 34:53)
+We talked about two-bar trails. You can scale it. You can do it for anything, right? You're going to remove the emotion with that one.
+
+(34:53 - 35:12)
+And number five, that AI trade autopsy, which can actually give you coaching-level feedback on each individual trade, but it also feeds into that overarching thing that we talked about where you're looking at it over a week. The non-negotiables. One, specificity in your prompts.
+
+(35:13 - 35:19)
+Vague equals garbage. Specific equals gold. Number two, iteration.
+
+(35:19 - 35:27)
+The first draft is almost never perfect. You're going to plan to refine, test, improve. Remember that two weeks of working on something.
+
+(35:27 - 35:38)
+Not all the time, but continually coming back to it to iterate. Three is verification. You can never blindly trust this stuff, right? You have to trust everything in your paper trading first to understand the logic.
+
+(35:39 - 35:47)
+Number four, context. More context equals better output, especially for analysis. All right, here's a big rule.
+
+(35:48 - 35:59)
+AI does not replace your thinking right now. It removes the bottlenecks that prevent you from thinking clearly. Here's what I want you to do.
+
+(36:00 - 36:06)
+Pick one of these five. Not all five, just one. Whichever one solves your biggest bottleneck right now.
+
+(36:08 - 36:15)
+And then here's a decision tree that you can use. If you're missing setups, start with custom alerts. If your prep isn't consistent, start with game plan automation.
+
+(36:15 - 36:31)
+If you can't see your patterns, start with custom journal, right? If emotion wrecks your exit, start with custom order logic. And if you repeat the same mistakes over and over, start with that AI trade autopsy. Pick one, focus on this for the next two weeks because here's the reality check.
+
+(36:31 - 36:53)
+Ninety percent of traders will watch this video and they'll actually do nothing, but kind of think, oh, that's cool, and then just move on, right? Seven percent are going to try it once, maybe even try it a couple of times. They're going to get a mediocre result because they used a very vague prompt and then they're going to give up. I guess, and I hope this isn't the case, but I guess that about three percent will actually build one of these systems this week.
+
+(36:54 - 37:17)
+And the edge comes from those three percent. They'll have an operational advantage. They will compound every single week because while everyone else is still doing this stuff manually or not doing it at all or not paying attention to it, those three percent will be operating more and more like a professional trading firm with custom infrastructure that they can build in minutes, right? You don't need to be a coder.
+
+(37:18 - 37:49)
+You don't need to hire a developer. You just need to know how to describe exactly what you want and then Claude does the rest. So comment below which practice are you committing to building first, right? We've listed a bunch of the exact prompt templates to get you started and if you build it, then comment, show us what you made because this is the edge that 97% of traders don't even really recognize exists yet and you're about to be in the three percent who do.
+
+(37:49 - 38:06)
+Now, if this changed how you think about AI and trading, go ahead and hit subscribe, right? And you can also check out one of our videos from before. I really like the seven levels of trading to help you learn right where you are right now and I look forward to seeing you there. Stop watching charts all day hoping for trades.
+
+(38:06 - 38:25)
+Our Wall Street Scanner alerts you minutes before a profitable setup triggers, just like it does for our $20 million a year traders. At S&B Capital, we're not your typical secretive Wall Street firm. Instead of hiding our strategies, we've built our success by sharing them.
+
+(38:25 - 38:54)
+Our New York trading floor houses dozens of professional traders, many of whom are seven figure and even eight figure per year earners and we hire select remote traders worldwide. Are you constantly feeling like becoming consistently profitable is just around the corner but you're never actually getting there? Here's what we've learned in nearly 20 years of training elite traders. Scalping is by far the fastest and easiest way to become consistently profitable in US stocks.
+
+(38:55 - 39:11)
+Now, we're talking about hit and run trading in and out of the market within five to 30 minutes. Here's the challenge though. When you're trading alone without the support of a prop firm environment, it's extremely difficult to find good scalps consistently.
+
+(39:12 - 39:43)
+The key is being in the right stocks at the right time and spotting what we call easy money setups. How much time and money have you lost trading without real world edge? That's exactly why we developed the S&B Scalp Radar, a groundbreaking tool that does 80% of the heavy lifting by scanning US stocks in real time. So we've programmed it with five of our most powerful scalping strategies, the same ones that have collectively made our firm tens of millions of dollars.
+
+(39:44 - 39:58)
+The radar identifies the 20 to 40 stocks in play during each session. It detects seven to 12 high quality scalping opportunities daily. It alerts you minutes before these setups trigger, giving you time to prepare.
+
+(39:59 - 40:12)
+And then it monitors the market in real time so you never actually miss a setup. Look, there's a reason why professional trading floors work. Traders helping traders spot and execute their best setups in real time.
+
+(40:13 - 40:43)
+And that's exactly what the Scalp Radar does for independent traders like you. It's having a team of professional traders scanning the market alongside you, pointing out the highest probability setups even before they happen. What would it mean to have the same advantages as professional traders on a Wall Street trading floor? And because these are the exact same setups our professional traders use every day, you're not just getting some theoretical system, you're actually getting battle tested strategies that actually work in today's markets.
+
+(40:43 - 41:03)
+We've distilled nearly two decades of proprietary trading experience into five core concepts that provide numerous great trades day in and day out. This isn't just another automated system. This is a tool that trains you to build real repeatable trading skills while relieving your trading uncertainty.
+
+(41:04 - 41:33)
+So if you're tired of the endless trading struggle, if you're fed up with taking one step forward and then two steps back, if you're ready to do something truly different backed by two decades of Wall Street success, then here's what you need to do right now. Now, this is a free intensive workshop where you'll get a detailed tour of the Scalp Radar in action. You'll see exactly how it detects robust scalping opportunities in real time, relieving your trading uncertainty.
+
+(41:34 - 41:54)
+So click the link to grab your free seat and you'll get a detailed tour of the revolutionary Scalp Radar. You'll get the exact entry and exit rules of five of our top scalping strategies. You'll get convenient cheat sheets with all the rules, and you'll get extra valuable execution information for each strategy.
+
+(41:54 - 42:08)
+That's the entries and exits for each strategy. These workshop spots are limited and they'll fill up quickly. Don't waste another day trading without a real world edge, one that's proven by traders who make real money.
+
+(42:08 - 42:22)
+Register for your free spot now by clicking the link below. Remember, these are the same strategies that help three of our traders each make nearly $20 million in a single year. The only question is, will you be next?

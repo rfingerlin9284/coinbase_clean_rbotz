@@ -1,0 +1,28 @@
+📋 ENGINE STATUS
+✅ Engine Process: RUNNING (PID 14839, uptime 2h 54m)
+
+🤖 HIVE-RICK AI SYSTEMS
+✅ Hive Mind: Hive Mind loadable (GPT, GROK, DeepSeek agents)
+⚠️  Local LLM (Ollama): Offline or unreachable
+
+🎯 TRADING SYSTEMS
+✅ Multi-Strategy: All 7 detectors ready
+✅ Charter Compliance: PIN 841921 | RR 3.2:1 | Min notional $15,000
+✅ Position Dashboard: Available (60s refresh)
+
+🌐 API CONNECTIVITY
+✅ OANDA API: Account balance: $9,945.00
+
+💾 DATA & LOGGING
+✅ Narration Log: Writable (4.3 MB)
+✅ System Resources: CPU 1.5% | RAM 10.8% | Disk 0.4%
+
+🛠️ SYSTEM DIAGNOSTICS
+✅ Engine Process: RUNNING (PID 14839, uptime 2h 54m)
+✅ Hive Mind: Hive Mind loadable (GPT, GROK, DeepSeek agents)
+✅ Multi-Strategy: All 7 detectors ready
+✅ Charter Compliance: PIN 841921 | RR 3.2:1 | Min notional $15,000
+✅ Position Dashboard: Available (60s refresh)
+✅ OANDA API: Account balance: $9,945.00
+✅ Narration Log: Writable (4.3 MB)
+✅ System Resources: CPU 1.5% | RAM 10.8% | Disk 0.4%

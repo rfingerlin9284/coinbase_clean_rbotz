@@ -1,0 +1,295 @@
+(0:00 - 0:25)
+What if you could slow down the market and see exactly how an elite trader thinks and acts in real-time? No theory, just pure execution. In this video, you're getting a slow-motion replay plus expert commentary of 10 different scalp trades taken directly from our trading desk. I'm Mike Belafurie, and we're one of the top proprietary trading firms in the US, proud to have developed numerous 7 and even 8 figure a year traders.
+
+(0:25 - 0:37)
+We hope you agree you've found the right place to help grow your trading account. Today we're slowing the market down so you can actually see what makes scalping work. The timing, the patience, the execution.
+
+(0:38 - 0:59)
+We're gonna look at 10 real scalps from one day. We played in slow motion. One of them I almost bailed on. 
+
+One of them I sized like a pro with zero stress. And one of them, well, it's my absolute favorite mistake. Do you think you can spot which one's which? You're gonna listen for the little... That's when the moment for each of these trades shows up.
+
+(0:59 - 1:18)
+I'll tell you exactly what I saw, why I pressed or why I waited. Ten reps, one day. By the end, you'll have the muscle memory to take these on your own. 
+
+Are you ready? Let's roll. The very first scalp is this failed breakout that occurred in NVIDIA, and it's actually a VWAP continuation trade. We've been seeing this a lot lately.
+
+(1:19 - 2:28)
+We're not sure if it means something bigger is happening in the market, but mega caps that move up into resistance with a first move up, and then they quickly fail after they look like they're about to break out. It's really dangerous to stand in front of a possible breakout train, but in this case, and one of the things we've been seeing a lot lately is that the action will put in what we call this stuff scalp right at the high. Looks like it's gonna break out and then you get a stuff scalp. 
+
+Now, this isn't a trade we took. It's not one of the ten, and it could have been, but the focus was somewhere else at this point in the day, and you'll see why in a minute. What should happen after a name beats earnings and gets bid up after an initial bad response and earnings, and then breaks to the highs of a 10 or so day range. 
+
+It should go, right? It should be a runner, but we're seeing this over and over in mega caps. When it stuffs like this and then gets below VWAP, we can adjust with it. The setup shifts. 
+
+It fails to break out, and it's now this failed breakout setup. All that enthusiasm for this turning into a runner immediately shifts to unease as the profits get taken in this name. We don't want to hit the lows, but we can look to short up into the pops.
+
+(2:28 - 2:39)
+So just let the moment get presented for you and look for a possible VWAP continuation trade. There it is, that 941. The stop goes above the high of that move.
+
+(2:40 - 3:04)
+We enter after the change in character when the candle closes below the prior two candles low. Our target, four points. It's about the best we should look for because it's a measured move from that initial high all the way down, and it winds up getting there. 
+
+I kind of pieced out. I honestly didn't know what to think of it. It seemed to happen almost too quickly, so I took half off early into the flush into that 179 area.
+
+(3:05 - 3:35)
+It's definitely a mistake because the thing worked so quickly. I could have and should have been focused on using that two-bar trail there since it was in the momentum part of the move. It was still a really solid trade, but there's so much room for improvement. 
+
+There always is. Okay, not all of these remaining nine scalps from the same day will be this clear or this clean or even all work. A couple of them start to fail and almost miserably, and you'll actually see those.
+
+(3:35 - 3:49)
+But we're slowing this down so you can see what the pros really look at, that timing, patience, and execution. So let's start and set some ground rules for the day together. We're looking at 10 price action scalps.
+
+(3:50 - 4:01)
+Each scalp has to be one of them for my playbook. Some you might already be familiar with, some might be new. But finally, our most important rule, there cannot be any revenge trades.
+
+(4:01 - 4:13)
+If you ever notice yourself making revenge trades, this has to be one of your goals. No revenge trades. If you wind up making revenge trades, you can start to make 20 or 30 scalps in a day and really get nowhere.
+
+(4:14 - 4:48)
+If something works out or it doesn't, that's it. Move on. It doesn't mean move on from the symbol. 
+
+It just means move on from that trade. A key you will hear from me through this video is what might be setting up next. That's something you want to think about. 
+
+We're looking back at Nvidia. That was a hard move lower. That was a consistent move lower. 
+
+But the name still beat earnings. The name still up a decent amount. We kind of might be thinking about some sort of long that might set up because this stocks more likely to somewhat be in range.
+
+(4:49 - 4:59)
+All right. We don't really have that much time. So we're going to jump right into the next scalp, which actually occurred right at the beginning of the day, even before that VWAP continuation trade we already showed.
+
+(4:59 - 5:10)
+And we're going to look at a stock that played out in a way that was kind of frustrating on day one, but it made a lot more sense on day two. All right. So this is a day two continuation.
+
+(5:10 - 5:38)
+It's a puppy dog scalp right on the open right at 932. Actually, the day before on this, I hit out when the trade didn't work the way I expected. And I sort of made a big mistake by losing sight of it when it made this epic breakout move and this had this amazing trend in the afternoon after I had exited the trade, of course, right? But because of the sustained nature of the buying on day one, we put it on the radar for day two and then this trade happened.
+
+(5:39 - 5:55)
+Stop is just below the low of that little consolidation, that puppy dog consolidation. Our entry is the break and that hold right above the pre-market high, right above that puppy dog consolidation. This is a day two puppy dog above pre-market high.
+
+(5:55 - 6:10)
+The key to this trade and what a lot of people miss is the correlations. Now, this pre-market high is also at that key round number at 300. If this little pause, this puppy dog consolidation is happening below 300, this trade's a no-go.
+
+(6:11 - 6:26)
+Above 300, it's a great scalp to take. For our target, we're going to use the momentum stalling as our reason to sell. This is a Momo trade, just scalp the momentum or in this case, you can use the 9 EMA as a guide.
+
+(6:26 - 6:42)
+So the first time we get a close below the 9 EMA, that's a reason for the momentum to be done for now. All right, so you already noticed that we hear an audio when this trade's really setting up for us. This is a cue we can pay attention to.
+
+(6:42 - 7:11)
+These pings are a part of scalp radar and they're almost a reminder to get into focus mode. On days like this one, we're studying, when the market's sort of moving all around, things are trading all around, up and down, lots of setups, but only a few of them really turn into trades. We wind up passing on a lot of potential ideas, but it's a process of getting ready and seeing if there might be a trade there and if it's not, just passing.
+
+(7:11 - 7:35)
+They make it too easy on days like this to get locked into a single idea when things are moving around so much. So we can take a look at a single name and we can quickly start to invent trades because it feels like the movement around is actually trading edge, it's signal. But there's typically just distractions because the movement can set up real edge, but we still need that edge, we still need that signal.
+
+(7:35 - 7:55)
+And using this as an indicator to look for edge versus an indicator to take action gives you the confidence to pass on things that aren't showing you edge. This is a powerful process we use. That noise doesn't tell us to take a trade, it tells us to pay attention to see if the opportunity is there for us to take a trade.
+
+(7:55 - 8:10)
+Alright, this is a VWAP continuation trade we took in B-I-L-L. This is a trade that I have to be honest, 100% I thought I was going to get stopped out at. There's a huge lesson here, there's a rookie error coming, and I have to make sure I prevent it next time before it happens.
+
+(8:10 - 8:31)
+So the VWAP continuation, with the trade you are looking for, you're looking for a first move higher and then a pullback into VWAP and then the buyer stepping in and showing demand exists right at either just above or just below VWAP. And your stop's going to go below the pullback low, 2 cents below the pullback low to be exact. You'll see why that matters in a second.
+
+(8:32 - 8:43)
+We buy back above VWAP and we enter there, that was my entry. As soon as it got back above VWAP, I jumped right in. Honestly, I still don't know how I didn't get stopped out here, but look left on the chart.
+
+(8:43 - 8:53)
+Notice that little consolidation before the breakdown towards VWAP. That was a red flag for this scalp. We don't want that in this VWAP continuation trade.
+
+(8:53 - 9:12)
+We just don't want the long consolidation before that drop into VWAP. We want a grindy move into VWAP that then accelerates as it approaches VWAP and then just finds the buyers right there. It's not a surprise as it gets kind of sold after that initial pop and it looks like it's going to roll over there.
+
+(9:12 - 9:23)
+What the surprise is, is that the sellers weren't even able to take out the lows of the first move and stop us out. It really should have. It should have wicked us out and then decided it was going to go higher or lower.
+
+(9:23 - 9:40)
+But the fact that it didn't, well that was telling. Had I been more focused on this name, it could have created a real opportunity to add more when it was cleanly holding above VWAP with this little bit. Looking for it to hold above high of day and then look for a continuation.
+
+(9:41 - 9:55)
+And then just trail the rest out waiting for a distinct lower low and lower high to get put in. This trade turned into a really good trending trade. It ultimately didn't really put in a lower high and a lower low.
+
+(9:56 - 10:10)
+So in theory, you wouldn't have been stepped out of this trade at all. Those buyers that didn't let us get stopped out were just there for the rest of the day. I had moved on to a really different trade and so wasn't really paying attention to this one.
+
+(10:10 - 10:21)
+But this is a great lesson to learn. When you should get stopped out and you do not, do not over manage the trade. Just say thank you, allow the trade to play out and move on.
+
+(10:22 - 10:37)
+In this case, I exited all of it into high of day and then didn't even give it a chance to turn into a much better trade. Alright, we're coming back to Nvidia now. We talked about if this thing really started to extend lower, it might turn into a really good bounce trade.
+
+(10:37 - 10:49)
+We might be looking for some sort of consolidation to occur. So this rubber band, I'm going to size up because of what I saw on the tape at a key support level. So we've talked about the short and how it worked almost too well.
+
+(10:50 - 10:58)
+That was information. This stock really wasn't likely to unwind today. It could have, but it wasn't really a high probability.
+
+(10:59 - 11:16)
+When it accelerates lower and even more, when it accelerated lower into a key support area with a distinct and noticeable change in the tape, look out. That's a rubber band scalp. This one got sized up really quickly because what we see on the tape.
+
+(11:16 - 11:34)
+Notice that flurry of bids right there. How the tape just totally shifts and the bids jump in and it's like, wow, that was noticeably different than what I had seen before. That tape action at the low of the day into that support area after an extension is often like this grand finale for the day.
+
+(11:34 - 11:43)
+It's the last flurry of activity from the fireworks show. So when everybody's saying, wow, it feels like the whole sky lit up. But then the selling is just over.
+
+(11:43 - 11:54)
+The sellers are so often done when you see this, done for the day. And the stock will just start to normalize. We get the change in the tape and this is telling us that the rubber band is on.
+
+(11:54 - 12:00)
+Our stop goes below the low of the day. Two cents below the low of the day. Our target is V1.
+
+(12:01 - 12:13)
+Honestly, in this trade with that sort of price action, that tape, the selling should be totally done. So it should not get stuck and hold near the lows. If that's happening, we need to reconsider very, very quickly.
+
+(12:14 - 12:24)
+The stock should start to normalize, should start to grind back higher. And it does, so we can stay with this trade. But guys, if it was going to hold at the lows, this is a bad sign for this trade.
+
+(12:24 - 12:38)
+And a sign one big seller may be done, but other big sellers are still selling the stock. We have to see that distinct and noticeable bounce after you see that price action. We get a total gift here.
+
+(12:39 - 12:52)
+This is one of the most boring scalps and it's somehow one of the biggest scalps that you can make. As this trade kind of continues to play out, you notice this pull-in. Doesn't it feel like a threat or maybe isn't an opportunity? It could be a big seller coming in.
+
+(12:53 - 13:09)
+Yeah, but we have a specific thing to look for here and it shows up right now. When there's this little roll and then you see that rebid, that was just a trap. It's like we've seen things falling at the highs, trapping the chasers in mega cap names on the open.
+
+(13:09 - 13:18)
+But we've also seen a lot of these same mega caps failing at the lows. They look like they're going to roll back over. They trap late shorts with price action just like this.
+
+(13:18 - 13:26)
+And then they set up really great backside scalps. We're already in the rubber band. We already had that rubber band with the target of VWAP.
+
+(13:27 - 13:33)
+But when the stock offers you more, you don't say no thanks. You just say thank you. It gives you another opportunity.
+
+(13:33 - 13:56)
+And if it does step into it and enjoy it. So once we get that higher low and that consolidation and then that entry, we put our stop below the higher low. We really won't give it all the way back to that higher low, but that's where the stop is, right? The entry is right on that break of that little consolidation, that little range to the upside and our targets VWAP.
+
+(13:57 - 14:11)
+Now, given the way that this rolled over and then started to rebid, those buyers stepped right back in, this trade should play out pretty quickly after that trap. And it does. And we can be out of the whole trade, both trades, into the spray up into VWAP.
+
+(14:11 - 14:20)
+So we're only halfway through this day. We've covered five scalps so quickly. It's early in the morning still and things seem to be going pretty well.
+
+(14:20 - 14:31)
+We kind of got bailed out of a possible mistake. We saw how that turned out and it turned into an even better trade. But now let's look at a failure and let's see what we do with that failure.
+
+(14:32 - 14:46)
+So doesn't this remind you a bit of the Nvidia and the initial pop looks good off of the rubber band. But this thing does not start to grind up. In fact, it kind of chases up and then completely does the opposite of what we look for.
+
+(14:46 - 14:56)
+This is bad news bears. This is telling us not only is this trade not working, it's not working the way we want. I always label this sort of fake strength.
+
+(14:56 - 15:06)
+Here's the tiny detail that gives it away. See how it pushes higher but then fails to get higher. Not once, not twice, but three times.
+
+(15:06 - 15:33)
+It just stops working. When that happens, especially after a rubber band, instead of letting it all the way go back to the lows and completely stop us out, when it's had time go by like this, especially when it's tried once, twice, three times to press higher and it can't, you have to scratch that trade and look at it as information. This is likely going to be a rip if we hold it all the way back to the lows.
+
+(15:33 - 15:46)
+So here's the key. How we take losses matters a ton because losses can be frustrating or they can be information. In this case, we let that loss turn into information.
+
+(15:47 - 15:57)
+Did we want this to go right back to VWAP and turn into a really good trade? Of course, but it didn't. And what happened next gave us our next trade. So we absorb the information.
+
+(15:57 - 16:04)
+This allows us to see this big dog consolidation that occurs. Now the rubber band didn't work. The sellers aren't done.
+
+(16:05 - 16:29)
+We allow this consolidation to build and build and build. When we see those attempts to get higher that just can't get higher, especially after we have this nice sweeping down move and the stock really should revert very nicely to the upside, the sellers should be done, but they don't. We can look for that real change where the sellers step back in and we can turn this into a big dog consolidation.
+
+(16:30 - 16:47)
+Right there, right where it started to roll over, that's the moment where this is the scalp I'd show a rookie. It's simple, it's clean, it's repeatable. You need the time to let this trade develop, but once it does, it gives us such a clear opportunity.
+
+(16:47 - 17:06)
+This is the one I got completely wrong first, but this is the one that paid as I adjusted. I used that information. You know, even for this one, when you recognize that it just can't get higher, you can sort of put that trade on predicting a bit, but once I saw that change, it was time to go.
+
+(17:06 - 17:19)
+You take that first stop as it looks like it's going to roll over and then pops and then it doesn't go higher. The sellers just absolutely take control. That's where the stop goes above that high of that little pop.
+
+(17:19 - 17:30)
+You're targeting two measured moves. So you take the width of the range, you're looking for one measured move, a second measured move. That's how you manage the big dog consolidation.
+
+(17:31 - 18:02)
+Didn't do anything special, but it was a really good solid trade that showed up simply because one trade didn't work and it just didn't work the right way, so we can use that information and let another trade set up for us, which is what happened. All right, so this one I almost missed, but I was alerted to it as it was being bought, and it was being bought in this very specific way, a way that gives us some edge in a stock, allows us to look for that fashionably late. This stock, we were looking for it to break out of the range.
+
+(18:03 - 18:32)
+The fashionably late showed up as the buyers started to step in. Do you see how those buyers came up off the low? The consistency of that buy program, the way we had that first dip out and then that rebid occurred almost immediately. Now, I wasn't paying attention to this enough to catch the backside, and honestly, it wasn't the trade I was looking for, but once I got alerted to the fashionably late that was setting up, it allowed me to really focus in on this stock.
+
+(18:33 - 18:47)
+I can enter when that 9 EMA crosses above VWAP. As price action gets above VWAP and we hear that, and then that 9 EMA crosses, that's the entry. When we have that increase in volume, that's really what we want to see.
+
+(18:48 - 19:06)
+Our stop can go a third of the way below the range and we can target the entirety of that range from the low to where the cross occurred. Once we enter the trade, a lot of people ask, do you move your stop up in the fashionably late? And you can. And a lot of times we will.
+
+(19:07 - 19:30)
+As it gets closer to target, especially if you have a good momentum move higher, you can start to trail your stop up a little bit. You have to be aware sometimes it dips out, but then you want to see those buyers come in and you trail it right into your exit, which happens to be a really nice measured move, and then you just move on. It's a really good scout.
+
+(19:32 - 19:54)
+All right, so this is one of my favorite trades. It's above the clouds, right? This stock was bought all morning, had this grindy look towards VWAP, looked like it was going to put in a really good backside, and then what happened right at noon when things are kind of starting to slow down and we're slowing down our trading a lot, we see that backside fail. When a backside fails, sometimes it's a really good long right there.
+
+(19:54 - 20:07)
+Other times you just want to wait and let the price action get above the clouds, like we see here, and then we want to look for that continuation trade. Here's a quick story. A trader had called this level like way in advance.
+
+(20:07 - 20:25)
+On the first move higher, that initial move higher, one of the traders says, if this ever holds above these highs, it's going to get a great move. It was almost sad because he didn't stick with the name, but it offered us such a clean move. He came back from like getting some lunch or something and he couldn't believe that he missed this entry.
+
+(20:25 - 21:00)
+It's so easy when you see that long consolidation, that pull in towards VWAP that then the buyers start to get in and then that little hold above the highs or right at the highs, and then even more importantly, when you get that large volume increase on the break. Your stop can just go below the low of the consolidation and you can trail this exit out. What you're really looking for is it to completely blow off and put in a lower high and then a lower low, or you can just try and trail it until the end of the day.
+
+(21:01 - 21:21)
+So this was almost a little unfortunate, but it turned into another really good opportunity and it actually caused us to stop out first and then look for that trade to show up again. So we're gonna get into a little bit of detail here that's really important and to see how much we have to adjust our thinking and not allow our ego to get in the way. We're almost done with this.
+
+(21:21 - 21:34)
+This is the 10th trade, if you can believe it or not. You see how we get that complete blow off move, that real acceleration, and we get that hard down move, right? It looks like it's a rubber band happening. It looks like it's gonna roll over from that point.
+
+(21:35 - 21:47)
+We can enter the rubber band short. I understand that this thing is like way up there and it's later in the day, but this looks like a pretty good trade. What's fascinating is it then accelerates even more.
+
+(21:48 - 22:08)
+So we have to take our stop because our stop for the rubber band is above the high of the day. Ego for everyone was saying this is just up too much and I'll short it. The discipline says I'll actually just wait and probably not take another trade unless I see that sustained buying trace and then drop.
+
+(22:08 - 22:22)
+Do you see that buyer in that last moment? You see that acceleration of the tape? Watch him vanish. That's your cue. The entire thing is this combination of checks in favor for the trade.
+
+(22:22 - 22:40)
+The extension, then the overextension, then the move into that big round number at 250. When we get that run and then that change on the tape, that's a trade we can take. I usually won't take these trades like when it's accelerating after a good above the clouds, but man, when it sets up, you have to put the risk back on.
+
+(22:41 - 22:52)
+And in fact, the first time when it extended, it gave this good mean reversion idea, but not a good trade. The rubber band was set up, but it wasn't quite as good. The second one gave a real trade.
+
+(22:53 - 22:57)
+You notice this tape speed up. That's the green light. That's when that occurs.
+
+(22:58 - 23:04)
+It's not the candle shape. It's not anything else. It's that really big push up into that resistance area.
+
+(23:04 - 23:12)
+And remember how much we saw that tape change in NVIDIA? Think about the same thing. We just saw the tape change here. Our stop would go right above the highs.
+
+(23:12 - 23:29)
+We're not looking for it to really roll all the way back in at this time of day, but we're looking for it to normalize a little bit, and it certainly does. Now, I exited this trade way too early, but I was okay with that. I got what I was looking for, which was just a mean reversion trade.
+
+(23:30 - 23:42)
+I didn't think this thing would start to unwind like it did, but hey, that's trading, all right? So there was ten scalps in one day. Here's what really mattered. We didn't try to predict.
+
+(23:42 - 23:53)
+We trained ourselves to recognize these setting up. We didn't plan to act every time something was moving around. We planned to prepare to analyze whenever something showed up.
+
+(23:53 - 24:05)
+We planned to slow the moment down. We planned to look for an opportunity to trade. We planned to trust the tape and let small decisions stack in our favor.
+
+(24:05 - 24:10)
+That's how you build your timing. That's how you get patience. That's how execution becomes automatic.
+
+(24:11 - 24:20)
+The real secret to all of this is reps. The more clean reps you take, the faster you grow. Scalping just gives you more great reps.
+
+(24:20 - 24:34)
+And if you heard that little ping today, that's what we use on our desk to notice when a move is waking up. It doesn't trade for you, but it helps you see the moment you've trained for. Go ahead and rewatch this video with your charts open.
+
+(24:34 - 24:41)
+Run your own slow motion session with this exact same trade. If this thing helped, hit subscribe. We do this every single week.
+
+(24:42 - 24:46)
+Trade well, trade small, and train your edge. We'll see you on the tape.

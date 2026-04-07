@@ -1,0 +1,37 @@
+# Rbotzilla Phoenix: Digital Hedge Fund Rollout Plan
+
+This is our master roadmap to taking Rbotzilla from its current state to a fully autonomous, reliable, and profitable "Set & Forget" digital hedge fund broker. Since you want me to take the lead, I have structured this plan into logical, safe phases. We will not move to the next phase until the current one is rock solid.
+
+## Phase 1: Stabilization & Bulletproof Risk Management (Current Goal)
+*Our first priority is capital preservation. Before we aim for massive profits, we must ensure the bot can never lose more money than we authorize, even if the app crashes or the internet drops.*
+
+- **Strict $30 Hard Stop Enforced:** I will audit the current OANDA engine to ensure the $30 max loss limit is an ironclad rule applied to every single trade.
+- **"Green-Lock" Trailing Stop:** Once a trade goes into profit ("the green"), I will write the logic that forces the bot to move the Stop Loss past the break-even point. We will eliminate "yo-yo" trades that turn winners into losers.
+- **Crash Recovery & Auto-Reconnect:** I will test and solidify the headless runtime so that if VS Code crashes or the internet drops, the bot immediately picks up active trades where it left off without duplicating orders.
+
+## Phase 2: Observability & The Dashboard
+*You need a crystal clear, human-readable view of what your "employees" (the bots) are doing while you are at work.*
+
+- **Dashboard V2:** Polish the terminal UI so you instantly see your Balance, Current P&L, Active Trades, API Status, and Margin usage.
+- **Audit Trails (Narration):** Ensure every decision the bot makes is written to a clean log file so we can review its choices at the end of the day and figure out why it won or lost.
+- **Win-Rate Throttle:** I will build a mechanism that tracks the win-rate of the 7 different strategies. If a strategy drops below a 55% win rate, the bot will automatically pause that specific strategy to stop the bleeding.
+
+## Phase 3: The "Copilot" Intelligence (Market Regime & Adaptation)
+*The market changes every day. A static bot dies. We need our bot to recognize market weather and change its clothes.*
+
+- **Market Regime Detector:** I will implement code that analyzes if the market is "Trending" loudly or "Ranging" quietly, and adjusts trade sizes and strategies accordingly.
+- **Dynamic Strategy Switching:** The Hive Mind will automatically promote strategies doing well in the current regime and silence the ones that are struggling.
+- **Session Awareness:** The bot will learn to tighten stops before the Friday close or pause during massive, chaotic news events.
+
+## Phase 4: Full Autonomy & Scale
+*This is the transition from a highly-supervised bot to a fully trusted, autonomous money-making engine.*
+
+- **AI Hive Mind Activation:** Fully wire up local or cloud AI models (like OpenAI or Claude) to do daily portfolio reviews and dynamically score trade confidences based on complex data.
+- **Auto-Graduation Protocol:** Create a rule where if Paper Trading achieves a >55% win rate and positive P&L over 7 consecutive days, the bot automatically requests to flip the switch to LIVE money.
+- **Alternative Broker Failover:** Hook up secondary brokers (like Coinbase or Interactive Brokers) in case OANDA goes down.
+
+---
+
+> [!IMPORTANT]
+> **User Review Required**
+> Please review these phases. Does this align with your ultimate vision? Are there any hard financial rules (like the $30 stop) or specific behaviors you want me to add to Phase 1 before we begin coding?

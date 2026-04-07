@@ -1,0 +1,5 @@
+nohup: ignoring input
+  File "/home/rfing/RBOTZILLA_OANDA_CLEAN/engine/trade_engine.py", line 477
+    - Sub-300ms execution tracking
+            ^
+SyntaxError: invalid decimal literal

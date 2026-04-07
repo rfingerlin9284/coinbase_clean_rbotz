@@ -1,0 +1,4 @@
+nohup: ignoring input
+  File "/home/rfing/RBOTZILLA_OANDA_CLEAN/engine/trade_engine.py", line 218
+    master_repo_path="/home/rfing/RBOTZILLA_PHOENIX",
+IndentationError: unexpected indent

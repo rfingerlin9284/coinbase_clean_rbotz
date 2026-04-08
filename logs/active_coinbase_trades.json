@@ -1,1 +1,1 @@
-{}
+{"8e78128b-0b47-4cb8-bccb-8500308ab4ca": {"id": "8e78128b-0b47-4cb8-bccb-8500308ab4ca", "instrument": "BTC-USD", "currentUnits": 0.00069, "price": 72026.42, "unrealizedPL": 0.0, "stopLossOrder": {"price": 71299.7901}, "takeProfitOrder": {"price": 74395.23347}}, "f9bc0f48-aa69-4eb5-ae07-f7782cd81749": {"id": "f9bc0f48-aa69-4eb5-ae07-f7782cd81749", "instrument": "AVAX-USD", "currentUnits": 2.67094, "price": 9.36, "unrealizedPL": 0.0, "stopLossOrder": {"price": "9.4071"}, "takeProfitOrder": {"price": 9.66514}}}

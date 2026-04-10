@@ -99,6 +99,45 @@ def _pip_size(symbol: str) -> float:
     return 0.0001
 
 
+# ── JPY Volatility: ATR-Scaled SL Floor ─────────────────────────────────────
+# GBP_JPY / EUR_JPY spreads routinely reach 5-8 pips, causing OANDA to reject
+# OCO brackets when the fixed SL (10-12 pips) is too tight.  This helper
+# returns max(base_sl_pips, 1.5 × ATR14_pips) so volatile pairs breathe.
+# R:R is preserved by scaling TP proportionally.
+
+_VOLATILE_PAIRS = {"GBP_JPY", "EUR_JPY", "AUD_JPY", "CAD_JPY", "NZD_JPY",
+                   "GBP_NZD", "GBP_AUD", "EUR_NZD", "XAU_USD"}
+
+def _atr_scaled_sl(
+    symbol: str,
+    candles: list,
+    base_sl_pips: float,
+    rr_ratio: float = 3.0,
+) -> tuple:
+    """
+    Return (sl_dist, tp_dist) in price terms.
+    For volatile pairs, widens SL to max(base, 1.5 × ATR14) and scales TP
+    to maintain the requested R:R ratio.
+    For non-volatile pairs, returns the original base distances unchanged.
+    """
+    pip = _pip_size(symbol)
+    base_sl_dist = base_sl_pips * pip
+    base_tp_dist = base_sl_dist * rr_ratio
+
+    if symbol.upper().replace("/", "_") not in _VOLATILE_PAIRS:
+        return base_sl_dist, base_tp_dist
+
+    # Compute ATR(14) from candles
+    atr = _atr(candles, 14) if len(_closes(candles)) > 15 else 0.0
+    if atr <= 0:
+        return base_sl_dist, base_tp_dist
+
+    atr_sl_dist = atr * 1.5
+    if atr_sl_dist > base_sl_dist:
+        return atr_sl_dist, atr_sl_dist * rr_ratio
+    return base_sl_dist, base_tp_dist
+
+
 # ─────────────────────────────────────────────────────────────────────────────
 # Session Awareness
 # ─────────────────────────────────────────────────────────────────────────────
@@ -211,8 +250,7 @@ def detect_momentum_sma(symbol: str, candles: list) -> Optional[SignalResult]:
         return None
 
     conf = min(0.90, abs(roc) / 2.0)
-    sl_dist = 10 * pip
-    tp_dist = 30 * pip
+    sl_dist, tp_dist = _atr_scaled_sl(symbol, candles, 10, rr_ratio=3.0)
     if direction == "BUY":
         sl, tp = price - sl_dist, price + tp_dist
     else:
@@ -267,8 +305,7 @@ def detect_ema_stack(symbol: str, candles: list) -> Optional[SignalResult]:
     except Exception:
         pass  # Fail silent — never block a signal due to this check
 
-    sl_dist = 12 * pip
-    tp_dist = 36 * pip
+    sl_dist, tp_dist = _atr_scaled_sl(symbol, candles, 12, rr_ratio=3.0)
     if direction == "BUY":
         sl, tp = price - sl_dist, price + tp_dist
     else:
@@ -583,15 +620,15 @@ def detect_rsi_extremes(symbol: str, candles: list) -> Optional[SignalResult]:
         return None
     rsi_now  = _rsi(closes, 14)
     rsi_prev = _rsi(closes[:-5], 14)
-    pip      = _pip_size(symbol)
     price    = closes[-1]
+    sl_dist, tp_dist = _atr_scaled_sl(symbol, candles, 12, rr_ratio=3.0)
 
     if rsi_now < 28:  # oversold
         # divergence bonus: price lower but RSI higher
         div_bonus = 0.10 if rsi_now > rsi_prev else 0.0
         conf = min(0.80, 0.55 + (28 - rsi_now) * 0.01 + div_bonus)
-        sl   = price - 12 * pip
-        tp   = price + 36 * pip
+        sl   = price - sl_dist
+        tp   = price + tp_dist
         return SignalResult("rsi_extreme", "BUY", conf, price, sl, tp,
                             {"rsi": round(rsi_now, 2), "type": "oversold",
                              "divergence": div_bonus > 0})
@@ -599,8 +636,8 @@ def detect_rsi_extremes(symbol: str, candles: list) -> Optional[SignalResult]:
     if rsi_now > 72:  # overbought
         div_bonus = 0.10 if rsi_now < rsi_prev else 0.0
         conf = min(0.80, 0.55 + (rsi_now - 72) * 0.01 + div_bonus)
-        sl   = price + 12 * pip
-        tp   = price - 36 * pip
+        sl   = price + sl_dist
+        tp   = price - tp_dist
         return SignalResult("rsi_extreme", "SELL", conf, price, sl, tp,
                             {"rsi": round(rsi_now, 2), "type": "overbought",
                              "divergence": div_bonus > 0})
@@ -664,7 +701,7 @@ def detect_mean_reversion_bb(symbol: str, candles: list) -> Optional[SignalResul
     if dist_to_basis < 8 * pip: 
         return None # Not enough meat on the bone
         
-    sl_dist = 12 * pip
+    sl_dist, _ = _atr_scaled_sl(symbol, candles, 12, rr_ratio=3.5)
     # Minimum TP distance for Charter 3.2:1 R:R — use 3.5x for margin
     min_tp_dist = sl_dist * 3.5
     if direction == "BUY":

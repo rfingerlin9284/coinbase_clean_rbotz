@@ -59,7 +59,9 @@ class TradeManager:
         # Green-lock config
         self._green_lock_pips = float(os.getenv("RBOT_GREEN_LOCK_PIPS", "5.0"))
         self._green_lock_min_profit_pips = float(os.getenv("RBOT_GREEN_LOCK_MIN_PROFIT_PIPS", "5.0"))
-        self._profit_target_pct = float(os.getenv("RBOT_PROFIT_TARGET_PCT", "75"))
+        # Default 100% — let trades hit full TP. 75% was cutting winners 25% early
+        # while losses always reached 100% of SL, creating structural R:R asymmetry.
+        self._profit_target_pct = float(os.getenv("RBOT_PROFIT_TARGET_PCT", "100"))
         if self._profit_target_pct > 1.0:
             self._profit_target_pct = self._profit_target_pct / 100.0
         # Stagnation config

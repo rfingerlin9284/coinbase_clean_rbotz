@@ -61,7 +61,9 @@ class TradeManager:
         # Green-lock config
         self._green_lock_pips = float(os.getenv("RBOT_GREEN_LOCK_PIPS", "5.0"))
         self._green_lock_min_profit_pips = float(os.getenv("RBOT_GREEN_LOCK_MIN_PROFIT_PIPS", "5.0"))
-        self._profit_target_pct = float(os.getenv("RBOT_PROFIT_TARGET_PCT", "75"))
+        # Default 100% — let trades hit full TP. 75% was cutting winners 25% early
+        # while losses always reached 100% of SL, creating structural R:R asymmetry.
+        self._profit_target_pct = float(os.getenv("RBOT_PROFIT_TARGET_PCT", "100"))
         if self._profit_target_pct > 1.0:
             self._profit_target_pct = self._profit_target_pct / 100.0
         # Stagnation config
@@ -297,90 +299,12 @@ class TradeManager:
                                 print(f"  [MANAGER] ⚠️  Green-lock rejected"
                                       f" {instrument} @ {green_sl:.5f}: {gl_err}")
 
-            # ── 5. RBZ Tight Trailing (Three-Step SL) ─────────────────────────
-            managed_state = self._managed.get(trade_id, {})
-            trail_trade = {
-                "id":          trade_id,
-                "trade_id":    trade_id,
-                "symbol":      instrument,
-                "instrument":  instrument,
-                "side":        direction,
-                "direction":   direction,
-                "entry":       entry,
-                "entry_price": entry,
-                "sl":          current_sl or 0.0,
-                "stop_loss":   current_sl or 0.0,
-                "meta":        managed_state.get("meta", {}),
-            }
-
-            strat = managed_state.get("strategy_name")
-            tags = set(managed_state.get("tags") or [])
-            trail_policy = policy_for(instrument, strat, tags)
-
-            # ── ATR Dynamic Trail Calibration (from OANDA winning config) ─────
-            try:
-                _m15 = self.broker.get_historical_data(instrument, count=15, granularity="M15")
-                _closes = [float(c.get("mid", {}).get("c", 0)) for c in _m15]
-                _highs = [float(c.get("mid", {}).get("h", 0)) for c in _m15]
-                _lows = [float(c.get("mid", {}).get("l", 0)) for c in _m15]
-                if len(_closes) >= 15:
-                    _tr = []
-                    for i in range(1, len(_closes)):
-                        _h, _l, _pc = _highs[i], _lows[i], _closes[i-1]
-                        _tr.append(max(_h - _l, abs(_h - _pc), abs(_l - _pc)))
-                    _atr = sum(_tr) / len(_tr)
-                    from .trail_logic import calibrate_from_atr
-                    trail_policy = calibrate_from_atr(trail_policy, _atr / current_price)
-            except Exception:
-                pass  # Fall back to base trail logic if ATR fetch fails
-
-            def _adjust_stop(tid: str, new_sl: float) -> None:
-                # Profit-only guard: only tighten SL when trade is in profit.
-                if entry and current_price:
-                    in_profit = (
-                        (direction == "BUY" and current_price > entry)
-                        or (direction == "SELL" and current_price < entry)
-                    )
-                    if not in_profit:
-                        return
-                try:
-                    self.broker.set_trade_stop(tid, new_sl)
-                    if tid in self._managed:
-                        self._managed[tid]["current_sl"] = new_sl
-                except Exception as e:
-                    print(f"  [MANAGER] ⚠️  Trail SL set failed: {e}")
-
-            def _trail_log(msg: str) -> None:
-                print(f"  [MANAGER] {msg}")
-
-            # ── Counter-trend detection: halve trail speed vs H4 bias ─────────
-            _ct_mult = 1.0
-            try:
-                _h4 = self.broker.get_historical_data(instrument, count=3, granularity="H4")
-                if _h4 and len(_h4) >= 2:
-                    _h4_close = float(_h4[-1].get("mid", {}).get("c", 0))
-                    _h4_open = float(_h4[-2].get("mid", {}).get("c", 0))
-                    _h4_bias = "BUY" if _h4_close > _h4_open else "SELL"
-                    if _h4_bias != direction:
-                        _ct_mult = 0.5
-                        print(f"  [MANAGER] ⚡ {instrument} counter-trend (H4 {_h4_bias} vs trade {direction}) → trail 0.5×")
-            except Exception:
-                pass  # Default to 1.0 if H4 fetch fails
-
-            try:
-                apply_tight_sl(
-                    policy=trail_policy,
-                    trade=trail_trade,
-                    price=current_price,
-                    adjust_stop_cb=_adjust_stop,
-                    log=_trail_log,
-                    counter_trend_mult=_ct_mult,
-                )
-                # Persist meta back
-                if trade_id in self._managed:
-                    self._managed[trade_id]["meta"] = trail_trade.get("meta", {})
-            except Exception:
-                pass  # Never let trailing logic crash the main loop
+            # ── 5. RBZ Tight Trailing — DISABLED ───────────────────────────
+            # Disabled by Operator: Let the trades breathe to hit the full Take Profit.
+            # Trailing stops were choking crypto winners at +1-2R, ruining the R:R math.
+            # The green-lock SL (step 4) provides adequate profit protection.
+            # Re-enable via RBOT_TRAIL_ENABLED=true in .env after confirming edge.
+            pass
 
             # ── 6. Stagnation kill-switch ──────────────────────────────────────
             self._handle_stagnation(
@@ -470,47 +394,11 @@ class TradeManager:
         current_units: float,
     ) -> bool:
         """
-        Partial Exit at 1:1 Risk/Reward. 
-        Sells 50% of the position and moves the Stop Loss to Breakeven.
+        Partial Exit at 1:1 Risk/Reward - STRIPPED.
+        Disabled by Operator: The user requested full-size profits to match full-size losses.
+        Scaling out 50% at 1R ruins the R:R math — average win becomes 0.5R while
+        average loss stays 1R, guaranteeing a slow bleed even with 60%+ win rate.
         """
-        managed = self._managed.get(trade_id, {})
-        if managed.get("meta", {}).get("scaled_out_1r"):
-            return False
-        if not entry or not initial_sl or not current_price:
-            return False
-
-        # Calculate 1R Distance
-        risk_dist = abs(entry - initial_sl)
-        if risk_dist <= 0:
-            return False
-
-        # Calculate current profit
-        if direction == "BUY":
-            profit_dist = current_price - entry
-            breakeven_sl = entry + (risk_dist * 0.05) # Cover fees
-        else:
-            profit_dist = entry - current_price
-            breakeven_sl = entry - (risk_dist * 0.05)
-            
-        if profit_dist >= risk_dist:
-            # Reached 1R! Scale out 50%
-            try:
-                scale_units = current_units * 0.5
-                self.broker.close_trade(trade_id, units=scale_units)
-                managed.setdefault("meta", {})["scaled_out_1r"] = True
-                
-                # Slide SL to Breakeven
-                try:
-                    self.broker.set_trade_stop(trade_id, breakeven_sl)
-                    managed["current_sl"] = breakeven_sl
-                except Exception as sl_err:
-                    print(f"  [MANAGER] ⚠️ SL Breakeven slide failed: {sl_err}")
-
-                print(f"  [MANAGER] 💰 1:1 SCALE-OUT SECURED (50%) {instrument} — SL Locked at Breakeven.")
-                return True
-            except Exception as e:
-                print(f"  [MANAGER] ⚠️ Scale-out failed {instrument}: {e}")
-                
         return False
 
     def _try_profit_target_close(

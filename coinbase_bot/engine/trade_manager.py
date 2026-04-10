@@ -303,7 +303,6 @@ class TradeManager:
             # Disabled by Operator: Let the trades breathe to hit the full Take Profit.
             # Trailing stops were choking crypto winners at +1-2R, ruining the R:R math.
             # The green-lock SL (step 4) provides adequate profit protection.
-            # Re-enable via RBOT_TRAIL_ENABLED=true in .env after confirming edge.
             pass
 
             # ── 6. Stagnation kill-switch ──────────────────────────────────────

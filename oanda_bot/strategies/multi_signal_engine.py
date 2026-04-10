@@ -128,7 +128,7 @@ def _atr_scaled_sl(
         return base_sl_dist, base_tp_dist
 
     # Compute ATR(14) from candles
-    atr = _atr(candles, 14) if len(_closes(candles)) > 15 else 0.0
+    atr = _atr(candles, 14) if len(_closes(candles)) >= 15 else 0.0
     if atr <= 0:
         return base_sl_dist, base_tp_dist
 

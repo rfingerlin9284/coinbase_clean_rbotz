@@ -867,14 +867,37 @@ class TradeEngine:
                 _trade_sl_pips = self._sl_pips
                 _trade_tp_pips = self._tp_pips
                 
-                # All strategies use the same standard SL/TP geometry from .env.
-                # Previously: reversal/scalp used 10/25 which was the same width as
-                # the ATR trailing stop, giving zero room for the trade to breathe.
-                _trade_sl_pips = self._sl_pips
-                _trade_tp_pips = self._tp_pips
-                print(f"  [STRATEGY EXIT] {_strategy} detected — using standard {_trade_sl_pips}/{_trade_tp_pips} exits")
-
+                # ── ATR-Scaled SL Floor for Volatile Pairs (JPY fix) ─────────
+                # GBP_JPY/EUR_JPY spreads routinely reach 5-8 pips, causing OANDA
+                # to reject OCO brackets when the fixed SL is too tight. Widen the
+                # SL to max(env_sl, 1.5 × ATR14) so volatile pairs can breathe.
+                # TP is scaled proportionally to maintain the target R:R ratio.
                 _pip = 0.01 if "JPY" in symbol.upper() else 0.0001
+                try:
+                    _atr_candles = self.connector.get_historical_data(symbol, count=20, granularity="M15")
+                    _atr_h = [float(c.get("mid", {}).get("h", 0)) for c in _atr_candles]
+                    _atr_l = [float(c.get("mid", {}).get("l", 0)) for c in _atr_candles]
+                    _atr_c = [float(c.get("mid", {}).get("c", 0)) for c in _atr_candles]
+                    if len(_atr_c) >= 15:
+                        _trs = [max(_atr_h[i]-_atr_l[i], abs(_atr_h[i]-_atr_c[i-1]), abs(_atr_l[i]-_atr_c[i-1]))
+                                for i in range(1, len(_atr_c))]
+                        _atr14 = sum(_trs[-14:]) / 14.0
+                        _atr_sl_dist = _atr14 * 1.5   # 1.5× ATR floor
+                        _env_sl_dist = _trade_sl_pips * _pip
+                        if _atr_sl_dist > _env_sl_dist:
+                            _atr_sl_pips = _atr_sl_dist / _pip
+                            # Maintain R:R ratio: scale TP proportionally
+                            _rr = _trade_tp_pips / max(_trade_sl_pips, 1)
+                            _trade_sl_pips = round(_atr_sl_pips, 1)
+                            _trade_tp_pips = round(_trade_sl_pips * _rr, 1)
+                            print(f"  [ATR_SL_FLOOR] {symbol} ATR14={_atr14/_pip:.1f}p "
+                                  f"→ SL widened {self._sl_pips}→{_trade_sl_pips:.0f}p, "
+                                  f"TP scaled {self._tp_pips}→{_trade_tp_pips:.0f}p (R:R {_rr:.1f}:1 preserved)")
+                except Exception:
+                    pass  # Fall back to env-based pips if ATR fetch fails
+
+                print(f"  [STRATEGY EXIT] {_strategy} detected — using {_trade_sl_pips}/{_trade_tp_pips} exits")
+
                 _sl_dist = _trade_sl_pips * _pip
                 _tp_dist = _trade_tp_pips * _pip
                 if sig.direction == "BUY":

@@ -28,6 +28,18 @@ class Colors:
     UNDERLINE = '\033[4m'
 
 
+import sys as _sys, os as _os
+_os.environ.setdefault('PYTHONPATH', '')
+_hygiene_dir = _os.path.join(_os.path.dirname(_os.path.dirname(_os.path.abspath(__file__))))
+if _hygiene_dir not in _sys.path:
+    _sys.path.insert(0, _hygiene_dir)
+try:
+    from util.key_hygiene import run_check as _run_key_check
+    _run_key_check()
+except Exception:
+    pass
+
+
 class StartupSequence:
     """Comprehensive system startup with confirmations"""
     
